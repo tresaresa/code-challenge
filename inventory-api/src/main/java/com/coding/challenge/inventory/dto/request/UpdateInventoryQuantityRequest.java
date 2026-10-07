@@ -1,0 +1,15 @@
+package com.coding.challenge.inventory.dto.request;
+
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+public record UpdateInventoryQuantityRequest(
+        @NotNull Long inventoryId,
+        @NotNull @Min(0) Integer quantity,
+        @NotBlank String userId
+) {
+}
